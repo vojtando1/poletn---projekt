@@ -1,0 +1,170 @@
+{
+  "game": {
+    "title": "Prokletí kamenného Golema",
+    "genre": "Textová adventura",
+    "goal": "Porazit Golema a projít portálem",
+    "winCondition": {
+      "defeatBoss": "golem",
+      "enterRoom": "portal"
+    }
+  },
+
+  "player": {
+    "name": "Vojta",
+    "startLocation": "vstupni_sin",
+    "inventoryLimit": 5,
+    "knowledge": {
+      "knowsGolemWeakness": false
+    },
+    "stats": {
+      "attack": 1,
+      "defense": 1
+    }
+  },
+
+  "rooms": {
+    "vstupni_sin": {
+      "name": "Vstupní síň",
+      "description": "Chladná a temná vstupní síň opuštěné pevnosti.",
+      "connections": ["strazni_mistnost"],
+      "items": [],
+      "characters": [],
+      "safe": true
+    },
+
+    "strazni_mistnost": {
+      "name": "Strážní místnost",
+      "description": "Místnost se zbytky výzbroje a duchem strážce.",
+      "connections": ["vstupni_sin", "zbrojnice", "knihovna", "alchymisticka_laborator"],
+      "items": ["rezavy_klic"],
+      "characters": ["duch_strazce"],
+      "safe": true
+    },
+
+    "zbrojnice": {
+      "name": "Zbrojnice",
+      "description": "Zničená zbrojnice plná rozpadlých zbrojí.",
+      "connections": ["strazni_mistnost"],
+      "items": ["stary_mec"],
+      "characters": [],
+      "safe": true
+    },
+
+    "knihovna": {
+      "name": "Knihovna",
+      "description": "Tichá knihovna plná zaprášených svitků.",
+      "connections": ["strazni_mistnost"],
+      "items": ["stary_svit"],
+      "characters": [],
+      "safe": true
+    },
+
+    "alchymisticka_laborator": {
+      "name": "Alchymistická laboratoř",
+      "description": "Laboratoř s kamenným oltářem a alchymistickými pomůckami.",
+      "connections": ["strazni_mistnost", "veznice"],
+      "items": ["kameny_oltar"],
+      "characters": [],
+      "safe": true
+    },
+
+    "veznice": {
+      "name": "Věznice",
+      "description": "Temná věznice s těžkými železnými dveřmi.",
+      "connections": ["alchymisticka_laborator", "sklepeni"],
+      "locked": true,
+      "key": "rezavy_klic",
+      "items": [],
+      "characters": ["alchymista"],
+      "safe": true
+    },
+
+    "sklepeni": {
+      "name": "Sklepení",
+      "description": "Nejtemnější místo pevnosti, sídlo Golema.",
+      "connections": ["veznice", "portal"],
+      "items": [],
+      "characters": ["golem"],
+      "safe": false
+    },
+
+    "portal": {
+      "name": "Portál",
+      "description": "Zářící portál vedoucí ven z pevnosti.",
+      "connections": [],
+      "items": [],
+      "characters": [],
+      "appearsAfter": "golem_defeated",
+      "safe": true
+    }
+  },
+
+  "characters": {
+    "duch_strazce": {
+      "name": "Duch strážce pevnosti",
+      "type": "NPC",
+      "hostile": false,
+      "dialogue": "Varuje hráče a dává rady o pevnosti a Golemovi."
+    },
+
+    "alchymista": {
+      "name": "Uvězněný alchymista",
+      "type": "NPC",
+      "hostile": false,
+      "rescued": false,
+      "abilitiesUnlockedAfterRescue": ["craft_potions"],
+      "dialogue": "Pomáhá s výrobou lektvarů a radí proti Golemovi."
+    },
+
+    "golem": {
+      "name": "Golem",
+      "type": "Boss",
+      "hostile": true,
+      "health": 100,
+      "weaknessRequired": true,
+      "defeated": false
+    }
+  },
+
+  "items": {
+    "rezavy_klic": {
+      "name": "Rezavý klíč",
+      "type": "key",
+      "usableOn": "veznice"
+    },
+    "stary_mec": {
+      "name": "Starý meč",
+      "type": "weapon",
+      "attackBonus": 2
+    },
+    "lektvar_sily": {
+      "name": "Lektvar síly",
+      "type": "potion",
+      "effect": {
+        "attackMultiplier": 2,
+        "duration": "short"
+      },
+      "consumable": true
+    },
+    "lektvar_ochrany": {
+      "name": "Lektvar ochrany",
+      "type": "potion",
+      "effect": {
+        "damageReduction": 0.5,
+        "duration": "short"
+      },
+      "consumable": true
+    },
+    "stary_svit": {
+      "name": "Starý svitek",
+      "type": "knowledge",
+      "effect": "reveal_golem_weakness",
+      "consumable": true
+    },
+    "kameny_oltar": {
+      "name": "Kamenný oltář",
+      "type": "environment",
+      "usable": true
+    }
+  }
+}

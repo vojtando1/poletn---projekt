@@ -1,14 +1,13 @@
 {
   "game": {
-    "title": "Prokletí kamenného Golema",
-    "genre": "Textová adventura",
-    "goal": "Porazit Golema a projít portálem",
+    "title": "Prokleti kamenneho Golema",
+    "genre": "Textova adventura",
+    "goal": "Porazit Golema a projit portalem",
     "winCondition": {
       "defeatBoss": "golem",
       "enterRoom": "portal"
     }
   },
-
   "player": {
     "name": "Vojta",
     "startLocation": "vstupni_sin",
@@ -21,150 +20,137 @@
       "defense": 1
     }
   },
-
   "locations": [
-     {
-      "name": "Vstupní síň",
-      "description": "Chladná a temná vstupní síň opuštěné pevnosti.",
-      "connections": ["strazni_mistnost"],
-      "items": [],
-      "characters": [],
-      "safe": true
-    },
-
     {
-      "name": "Strážní místnost",
-      "description": "Místnost se zbytky výzbroje a duchem strážce.",
-      "connections": ["vstupni_sin", "zbrojnice", "knihovna", "alchymisticka_laborator"],
+      "id": "vstupni_sin",
+      "name": "Vstupni sin",
+      "description": "Chladna a temna vstupni sin opustene pevnosti.",
+      "exits": ["strazni_mistnost"],
       "items": [],
       "characters": [],
       "safe": true
     },
-
-     {
+    {
+      "id": "strazni_mistnost",
+      "name": "Strazni mistnost",
+      "description": "Mistnost se zbytky vyzbroje a duchem strazce.",
+      "exits": ["vstupni_sin", "zbrojnice", "knihovna", "alchymisticka_laborator"],
+      "items": [],
+      "characters": [
+        {
+          "id": "duch_strazce",
+          "name": "Duch strazce pevnosti",
+          "type": "NPC",
+          "hostile": false,
+          "dialogue": "Varuje hrace a dava rady o pevnosti a Golemovi."
+        }
+      ],
+      "safe": true
+    },
+    {
+      "id": "zbrojnice",
       "name": "Zbrojnice",
-      "description": "Zničená zbrojnice plná rozpadlých zbrojí.",
-      "connections": ["strazni_mistnost"],
-      "items": [],
+      "description": "Znicena zbrojnice plna rozpadlych zbroji.",
+      "exits": ["strazni_mistnost"],
+      "items": [
+        {
+          "id": "stary_mec",
+          "name": "Stary mec",
+          "type": "zbran",
+          "attackBonus": 2
+        }
+      ],
       "characters": [],
       "safe": true
     },
-
     {
+      "id": "knihovna",
       "name": "Knihovna",
-      "description": "Tichá knihovna plná zaprášených svitků.",
-      "connections": ["strazni_mistnost"],
-      "items": [],
+      "description": "Ticha knihovna plna zaprasenych svitku.",
+      "exits": ["strazni_mistnost"],
+      "items": [
+        {
+          "id": "stary_svitek",
+          "name": "Stary svitek",
+          "type": "znalost",
+          "effect": "odhalit_slabinu_golema",
+          "consumable": true
+        }
+      ],
       "characters": [],
       "safe": true
     },
-
-     {
-      "name": "Alchymistická laboratoř",
-      "description": "Laboratoř s kamenným oltářem a alchymistickými pomůckami.",
-      "connections": ["strazni_mistnost", "veznice"],
-      "items": [],
+    {
+      "id": "alchymisticka_laborator",
+      "name": "Alchymisticka laborator",
+      "description": "Laborator s kamennym oltarem a alchymistickymi pomuckami.",
+      "exits": ["strazni_mistnost", "veznice"],
+      "items": [
+        {
+          "id": "kamenny_oltar",
+          "name": "Kamenny oltar",
+          "type": "prostredi",
+          "usable": true
+        }
+      ],
       "characters": [],
       "safe": true
     },
-
-     {
-      "name": "Věznice",
-      "description": "Temná věznice s těžkými železnými dveřmi.",
-      "connections": ["alchymisticka_laborator", "sklepeni"],
+    {
+      "id": "veznice",
+      "name": "Veznice",
+      "description": "Temna veznice s tezkymi zeleznymi dvermi.",
+      "exits": ["alchymisticka_laborator", "sklepeni"],
       "locked": true,
       "key": "rezavy_klic",
-      "items": [],
-      "characters": [],
+      "items": [
+        {
+          "id": "rezavy_klic",
+          "name": "Rezavy klic",
+          "type": "klic",
+          "usableOn": "veznice"
+        }
+      ],
+      "characters": [
+        {
+          "id": "uvezneny_alchymista",
+          "name": "Uvezneny alchymista",
+          "type": "NPC",
+          "hostile": false,
+          "rescued": false,
+          "abilitiesUnlockedAfterRescue": ["vyroba_lektvaru"],
+          "dialogue": "Pomaha s vyrobou lektvaru a radi proti Golemovi."
+        }
+      ],
       "safe": true
     },
-
-     {
-      "name": "Sklepení",
-      "description": "Nejtemnější místo pevnosti, sídlo Golema.",
-      "connections": ["veznice", "portal"],
+    {
+      "id": "sklepeni",
+      "name": "Sklepeni",
+      "description": "Nejtemnejsi misto pevnosti, sidlo Golema.",
+      "exits": ["veznice", "portal"],
       "items": [],
-      "characters": [],
+      "characters": [
+        {
+          "id": "golem",
+          "name": "Golem",
+          "type": "Boss",
+          "hostile": true,
+          "health": 100,
+          "weaknessRequired": true,
+          "defeated": false
+        }
+      ],
       "safe": false
     },
-
-     {
-      "name": "Portál",
-      "description": "Zářící portál vedoucí ven z pevnosti.",
-      "connections": [],
+    {
+      "id": "portal",
+      "name": "Portal",
+      "description": "Zarici portal vedouci ven z pevnosti.",
+      "exits": [],
       "items": [],
       "characters": [],
-      "appearsAfter": "golem_defeated",
       "safe": true
-    }
-  ],
-
-  "characters": [
-    {
-      "name": "Duch strážce pevnosti",
-      "type": "NPC",
-      "hostile": false,
-      "dialogue": "Varuje hráče a dává rady o pevnosti a Golemovi."
-    },
-
-     {
-      "name": "Uvězněný alchymista",
-      "type": "NPC",
-      "hostile": false,
-      "rescued": false,
-      "abilitiesUnlockedAfterRescue": ["craft_potions"],
-      "dialogue": "Pomáhá s výrobou lektvarů a radí proti Golemovi."
-    },
-
-    {
-      "name": "Golem",
-      "type": "Boss",
-      "hostile": true,
-      "health": 100,
-      "weaknessRequired": true,
-      "defeated": false
-    }
-  ],
-
-  "items": [
-     {
-      "name": "Rezavý klíč",
-      "type": "key",
-      "usableOn": "veznice"
-    },
-     {
-      "name": "Starý meč",
-      "type": "weapon",
-      "attackBonus": 2
-    },
-     {
-      "name": "Lektvar síly",
-      "type": "potion",
-      "effect": {
-        "attackMultiplier": 2,
-        "duration": "short"
-      },
-      "consumable": true
-    },
-     {
-      "name": "Lektvar ochrany",
-      "type": "potion",
-      "effect": {
-        "damageReduction": 0.5,
-        "duration": "short"
-      },
-      "consumable": true
-    },
-    {
-      "name": "Starý svitek",
-      "type": "knowledge",
-      "effect": "reveal_golem_weakness",
-      "consumable": true
-    },
-    {
-      "name": "Kamenný oltář",
-      "type": "environment",
-      "usable": true
     }
   ]
 }

@@ -40,7 +40,7 @@ public class GameData {
      */
     public Location findLocation(String name) {
         for (Location l : locations) {
-            if (l.name.equals(l.name)) {
+            if (l.getName().equals(l.getName())) {
                 return l;
             }
         }

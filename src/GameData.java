@@ -1,7 +1,6 @@
 import com.google.gson.Gson;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.FileReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 /**
@@ -24,17 +23,10 @@ public class GameData {
 
         Gson gson = new Gson();
 
-        try (InputStream is = GameData.class.getResourceAsStream(resourcePath)) {
-
-            if (is == null) {
-                throw new IllegalStateException(
-                        "Nenalezen resource: " + resourcePath +
-                                " (zkontroluj src/main/resources)"
-                );
-            }
+        try (Reader reader = new FileReader(resourcePath)) {
 
             return gson.fromJson(
-                    new InputStreamReader(is, StandardCharsets.UTF_8),
+                    reader,
                     GameData.class
             );
 
@@ -46,12 +38,12 @@ public class GameData {
     /**
      * Najde lokaci podle ID.
      */
-    public Location findLocation(String id) {
+    public Location findLocation(String name) {
         for (Location l : locations) {
-            if (l.id.equals(id)) {
+            if (l.getName().equals(l.getName())) {
                 return l;
             }
         }
-        throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
+        throw new IllegalArgumentException("Neexistuje lokace s id: " + name);
     }
 }

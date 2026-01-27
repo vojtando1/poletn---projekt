@@ -1,0 +1,156 @@
+{
+  "game": {
+    "title": "Prokleti kamenneho Golema",
+    "genre": "Textova adventura",
+    "goal": "Porazit Golema a projit portalem",
+    "winCondition": {
+      "defeatBoss": "golem",
+      "enterRoom": "portal"
+    }
+  },
+  "player": {
+    "name": "Vojta",
+    "startLocation": "vstupni_sin",
+    "inventoryLimit": 5,
+    "knowledge": {
+      "knowsGolemWeakness": false
+    },
+    "stats": {
+      "attack": 1,
+      "defense": 1
+    }
+  },
+  "locations": [
+    {
+      "id": "vstupni_sin",
+      "name": "Vstupni sin",
+      "description": "Chladna a temna vstupni sin opustene pevnosti.",
+      "exits": ["strazni_mistnost"],
+      "items": [],
+      "characters": [],
+      "safe": true
+    },
+    {
+      "id": "strazni_mistnost",
+      "name": "Strazni mistnost",
+      "description": "Mistnost se zbytky vyzbroje a duchem strazce.",
+      "exits": ["vstupni_sin", "zbrojnice", "knihovna", "alchymisticka_laborator"],
+      "items": [],
+      "characters": [
+        {
+          "id": "duch_strazce",
+          "name": "Duch strazce pevnosti",
+          "type": "NPC",
+          "hostile": false,
+          "dialogue": "Varuje hrace a dava rady o pevnosti a Golemovi."
+        }
+      ],
+      "safe": true
+    },
+    {
+      "id": "zbrojnice",
+      "name": "Zbrojnice",
+      "description": "Znicena zbrojnice plna rozpadlych zbroji.",
+      "exits": ["strazni_mistnost"],
+      "items": [
+        {
+          "id": "stary_mec",
+          "name": "Stary mec",
+          "type": "zbran",
+          "attackBonus": 2
+        }
+      ],
+      "characters": [],
+      "safe": true
+    },
+    {
+      "id": "knihovna",
+      "name": "Knihovna",
+      "description": "Ticha knihovna plna zaprasenych svitku.",
+      "exits": ["strazni_mistnost"],
+      "items": [
+        {
+          "id": "stary_svitek",
+          "name": "Stary svitek",
+          "type": "znalost",
+          "effect": "odhalit_slabinu_golema",
+          "consumable": true
+        }
+      ],
+      "characters": [],
+      "safe": true
+    },
+    {
+      "id": "alchymisticka_laborator",
+      "name": "Alchymisticka laborator",
+      "description": "Laborator s kamennym oltarem a alchymistickymi pomuckami.",
+      "exits": ["strazni_mistnost", "veznice"],
+      "items": [
+        {
+          "id": "kamenny_oltar",
+          "name": "Kamenny oltar",
+          "type": "prostredi",
+          "usable": true
+        }
+      ],
+      "characters": [],
+      "safe": true
+    },
+    {
+      "id": "veznice",
+      "name": "Veznice",
+      "description": "Temna veznice s tezkymi zeleznymi dvermi.",
+      "exits": ["alchymisticka_laborator", "sklepeni"],
+      "locked": true,
+      "key": "rezavy_klic",
+      "items": [
+        {
+          "id": "rezavy_klic",
+          "name": "Rezavy klic",
+          "type": "klic",
+          "usableOn": "veznice"
+        }
+      ],
+      "characters": [
+        {
+          "id": "uvezneny_alchymista",
+          "name": "Uvezneny alchymista",
+          "type": "NPC",
+          "hostile": false,
+          "rescued": false,
+          "abilitiesUnlockedAfterRescue": ["vyroba_lektvaru"],
+          "dialogue": "Pomaha s vyrobou lektvaru a radi proti Golemovi."
+        }
+      ],
+      "safe": true
+    },
+    {
+      "id": "sklepeni",
+      "name": "Sklepeni",
+      "description": "Nejtemnejsi misto pevnosti, sidlo Golema.",
+      "exits": ["veznice", "portal"],
+      "items": [],
+      "characters": [
+        {
+          "id": "golem",
+          "name": "Golem",
+          "type": "Boss",
+          "hostile": true,
+          "health": 100,
+          "weaknessRequired": true,
+          "defeated": false
+        }
+      ],
+      "safe": false
+    },
+    {
+      "id": "portal",
+      "name": "Portal",
+      "description": "Zarici portal vedouci ven z pevnosti.",
+      "exits": [],
+      "items": [],
+      "characters": [],
+      "safe": true
+    }
+  ]
+}

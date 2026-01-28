@@ -21,7 +21,7 @@ public class Player {
 
 
     public Item getItem(String id) {
-        return inventory.stream().filter(i -> i.id.equals(id)).findFirst().orElse(null);
+        return inventory.stream().filter(i -> i.getId().equals(id)).findFirst().orElse(null);
     }
 
 
@@ -33,7 +33,7 @@ public class Player {
     public String inventoryToString() {
         if (inventory.isEmpty()) return "Inventář je prázdný.";
         StringBuilder sb = new StringBuilder("Inventář: ");
-        for (Item i : inventory) sb.append(i.name).append(", ");
+        for (Item i : inventory) sb.append(i.getName()).append(", ");
         return sb.toString();
     }
 }

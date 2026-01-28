@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Location {
     private String id;
     private String name;
@@ -10,24 +11,29 @@ public class Location {
     private ArrayList<Item> items;
     private ArrayList<GameCharacter> characters;
 
-
-    public Location(String id, String name, String description, boolean locked, String key,
-                    ArrayList<String> exits, ArrayList<Item> items, ArrayList<GameCharacter> characters) {
+    /**
+     * Konstruktor pro vytvoření nové lokace.
+     *
+     * @param id          Unikátní identifikátor lokace (používaný pro logiku hry).
+     * @param name        Zobrazitelný název lokace.
+     * @param description Detailní popis místnosti pro hráče.
+     * @param locked      Informace, zda je lokace zamčená.
+     * @param key         ID předmětu (klíče), který je potřeba k odemčení.
+     * @param exits       Seznam ID sousedních lokací, do kterých lze jít.
+     * @param items       Seznam předmětů nacházejících se v lokaci.
+     * @param characters  Seznam postav nacházejících se v lokaci.
+     */
+    public Location(String id, String name, String description, boolean locked, String key, ArrayList<String> exits, ArrayList<Item> items, ArrayList<GameCharacter> characters) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.locked = locked;
         this.key = key;
+        // Pokud je vstup null, vytvoř prázdný seznam
         this.exits = (exits != null) ? exits : new ArrayList<>();
         this.items = (items != null) ? items : new ArrayList<>();
         this.characters = (characters != null) ? characters : new ArrayList<>();
     }
-
-
-    // Přidat metodu pro kontrolu zda má klíč
-        public boolean hasKey() {
-            return key != null && !key.isEmpty();
-        }
 
     public String getId() {
         return id;
@@ -69,6 +75,9 @@ public class Location {
         this.key = key;
     }
 
+    public ArrayList<String> getExits() {
+        return exits;
+    }
 
     public void setExits(ArrayList<String> exits) {
         this.exits = exits;
@@ -96,16 +105,7 @@ public class Location {
     public void describe() {
         System.out.println("\n== " + name + " ==");
         System.out.println(description);
-        if (!exits.isEmpty()) {
-            System.out.println("Východy: " + String.join(", ", exits));
-        }
-        if (!items.isEmpty()) {
-            System.out.print("Předměty: ");
-            for (Item item : items) {
-                System.out.print(item.getName() + ", ");
-            }
-            System.out.println();
-        }
+        System.out.println("Východy: " + String.join(", ", exits));
     }
 
     /**

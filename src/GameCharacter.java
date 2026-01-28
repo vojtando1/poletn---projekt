@@ -1,7 +1,7 @@
 public class GameCharacter {
-    String id;
-    String name;
-    String dialogue;
+    public String id;
+    private String name;
+    public String dialogue;
 
     public GameCharacter(String id, String name, String dialogue) {
         this.id = id;

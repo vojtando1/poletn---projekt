@@ -35,7 +35,13 @@
       "name": "Strazni mistnost",
       "description": "Mistnost se zbytky vyzbroje a duchem strazce.",
       "exits": ["vstupni_sin", "zbrojnice", "knihovna", "alchymisticka_laborator"],
-      "items": [],
+      "items": [
+        {
+          "id": "rezavy_klic",
+          "name": "Rezavy klic",
+          "type": "klic"
+        }
+      ],
       "characters": [
         {
           "id": "duch_strazce",
@@ -90,7 +96,7 @@
           "id": "kamenny_oltar",
           "name": "Kamenny oltar",
           "type": "prostredi",
-          "usable": true
+          "portable": false
         }
       ],
       "characters": [],
@@ -103,14 +109,7 @@
       "exits": ["alchymisticka_laborator", "sklepeni"],
       "locked": true,
       "key": "rezavy_klic",
-      "items": [
-        {
-          "id": "rezavy_klic",
-          "name": "Rezavy klic",
-          "type": "klic",
-          "usableOn": "veznice"
-        }
-      ],
+      "items": [],
       "characters": [
         {
           "id": "uvezneny_alchymista",

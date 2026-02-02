@@ -27,6 +27,7 @@ public class Game {
         commands.put("utoč", new AttackCommand());
         commands.put("konec", new QuitCommand());
         commands.put("pomoc", new HelpCommand());
+        commands.put("prozkoumej", new ExploreCommand());
     }
 
 
@@ -53,7 +54,10 @@ public class Game {
             return;
         }
         String arg = parts.length > 1 ? parts[1] : "";
-        cmd.execute(this, arg);
+        String result = cmd.execute(this, arg);
+        if (result != null && !result.isBlank()) {
+            System.out.println(result);
+        }
     }
 
 

@@ -105,6 +105,15 @@ public class Location {
     public void describe() {
         System.out.println("\n== " + name + " ==");
         System.out.println(description);
+
+        if (!items.isEmpty()) {
+            System.out.println("Vidíš zde nějaké předměty.");
+        }
+
+        if (!characters.isEmpty()) {
+            System.out.println("Někdo tu je...");
+        }
+
         System.out.println("Východy: " + String.join(", ", exits));
     }
 

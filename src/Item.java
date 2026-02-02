@@ -14,11 +14,11 @@ public class Item {
      * @param p objekt hrace, ktery predmet pouziva (dojde k aktualizaci jeho znalosti)
      * @param g instance hry pro pristup k hernim datum a stavu
      */
-    public void use(Player p, Game g) {
+    public String use(Player p, Game g) {
         if (id.equals("stary_svitek")) {
             p.knowsWeakness = true;
-            System.out.println("Dozvěděl ses slabinu Golema.");
         }
+        return "Dozvěděl ses slabinu Golema.";
     }
 
     public Item(String id, String name, String type) {
@@ -49,5 +49,10 @@ public class Item {
 
     public void setType(String type) {
         this.type = type;
+    }
+    private boolean portable = true;
+
+    public boolean isPortable() {
+        return portable;
     }
 }

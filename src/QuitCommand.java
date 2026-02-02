@@ -1,6 +1,13 @@
 public class QuitCommand implements Command {
-    public void execute(Game game, String argument) {
-        game.stop();
+    Game game;
+    public String execute(Game game, String argument) {
+        this.game = game;
+        return "Konec";
+    }
+
+    @Override
+    public boolean exit() {
+        return game.stop();
     }
 }
 

@@ -1,4 +1,5 @@
 public interface Command {
-    void execute(Game game, String argument);
+    String execute(Game game, String argument);
+    boolean exit();
 }
 

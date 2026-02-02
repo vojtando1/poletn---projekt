@@ -59,5 +59,8 @@ public class Game {
 
     public Player getPlayer() { return player; }
     public GameData getData() { return data; }
-    public void stop() { running = false; }
+    public boolean stop() {
+        running = false;
+        return running;
+    }
 }

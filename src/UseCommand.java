@@ -1,8 +1,13 @@
 public class UseCommand implements Command {
-    public void execute(Game game, String argument) {
+    public String execute(Game game, String argument) {
         Item i = game.getPlayer().getItem(argument);
-        if (i == null) System.out.println("Tento předmět nemáš.");
-        else i.use(game.getPlayer(), game);
+        if (i == null) return "Tento předmět nemáš.";
+        else  return i.use(game.getPlayer(), game);
+    }
+
+    @Override
+    public boolean exit() {
+        return false;
     }
 }
 

@@ -11,4 +11,5 @@ public class AttackCommand implements Command {public void execute(Game game, St
     System.out.println("Porazil jsi Golema! Objevuje se portál. Vyhrál jsi!");
     game.stop();
 }
+
 }

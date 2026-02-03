@@ -17,8 +17,9 @@ public class Item {
     public String use(Player p, Game g) {
         if (id.equals("stary_svitek")) {
             p.knowsWeakness = true;
+            return "Dozvěděl ses slabinu Golema.";
         }
-        return "Dozvěděl ses slabinu Golema.";
+        return "";
     }
 
     public Item(String id, String name, String type) {
@@ -49,10 +50,5 @@ public class Item {
 
     public void setType(String type) {
         this.type = type;
-    }
-    private boolean portable = true;
-
-    public boolean isPortable() {
-        return portable;
     }
 }

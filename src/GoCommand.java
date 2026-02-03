@@ -1,9 +1,8 @@
 public class GoCommand implements Command{
     @Override
-    public void execute(Game game, String arg) {
+    public String execute(Game game, String arg) {
         if (arg.isEmpty()) {
-            System.out.println("Kam mám jít? (Např. 'jdi strazni_mistnost')");
-            return;
+            return "Kam mám jít? (Např. 'jdi strazni_mistnost')";
         }
 
         Player player = game.getPlayer();
@@ -13,9 +12,7 @@ public class GoCommand implements Command{
         Location next = current.getExit(arg);
 
         if (next == null) {
-            System.out.println("Tudy cesta nevede nebo jsi zadal špatné ID místnosti.");
-            System.out.println("Možné východy: " + current.getExits());
-            return;
+            return "Tudy cesta nevede nebo jsi zadal špatné ID místnosti. Možné východy: " + current.getExits();
         }
 
         // Logika pro zamčené dveře
@@ -24,13 +21,17 @@ public class GoCommand implements Command{
                 System.out.println("Odemkl jsi dveře předmětem: " + next.getKey());
                 next.setLocked(false);
             } else {
-                System.out.println("Místnost je zamčená. Potřebuješ: " + next.getKey());
-                return;
+                return"Místnost je zamčená. Potřebuješ: " + next.getKey();
             }
         }
 
         // Samotný přesun
         player.setLocation(next);
-        System.out.println("Vcházíš do: " + next.getName());
+        return "Vcházíš do: " + next.getName();
+    }
+
+    @Override
+    public boolean exit() {
+        return false;
     }
 }

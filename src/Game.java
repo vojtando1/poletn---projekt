@@ -58,6 +58,10 @@ public class Game {
         if (result != null && !result.isBlank()) {
             System.out.println(result);
         }
+
+        if (cmd.exit()) {
+            running = false;
+        }
     }
 
 

@@ -51,4 +51,9 @@ public class Item {
     public void setType(String type) {
         this.type = type;
     }
+    private boolean portable = true;
+
+    public boolean isPortable() {
+        return portable;
+    }
 }

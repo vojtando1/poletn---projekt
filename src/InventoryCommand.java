@@ -1,6 +1,6 @@
 public class InventoryCommand implements Command {
     public String execute(Game game, String argument) {
-    return game.getPlayer().inventoryToString();
+        return game.getPlayer().inventoryToString();
     }
 
     @Override

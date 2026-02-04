@@ -10,4 +10,3 @@ public class QuitCommand implements Command {
         return game.stop();
     }
 }
-

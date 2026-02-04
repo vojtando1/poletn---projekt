@@ -138,8 +138,15 @@ public class Location {
      */
     public Item takeItem(String id) {
         for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getId().equals(id)) {
-                return items.remove(i); // remove(index) vrátí ten smazaný objekt
+            Item it = items.get(i);
+
+            if (it == null) continue;
+
+            if (it.getId().equals(id)) {
+                if (!it.isPortable()) {
+                    return null;
+                }
+                return items.remove(i);
             }
         }
         return null;

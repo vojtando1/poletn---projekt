@@ -5,6 +5,7 @@ public class GoCommand implements Command{
             return "Kam mám jít? (Např. 'jdi strazni_mistnost')";
         }
 
+
         Player player = game.getPlayer();
         Location current = player.getLocation();
 
@@ -23,12 +24,23 @@ public class GoCommand implements Command{
             } else {
                 return"Místnost je zamčená. Potřebuješ: " + next.getKey();
             }
+            if (next.getId().equals("portal")) {
+                game.stop();
+                return "Vstoupil jsi do portálu a unikl z pevnosti. VYHRÁL JSI!";
+            }
+            if (next.getId().equals("portal")) {
+                Location dungeon = game.getData().findLocation("sklepeni");
+                if (dungeon.getCharacter("golem") != null) {
+                    return "Portál je neaktivní. Golem stále žije!";
+                }
+            }
         }
 
         // Samotný přesun
         player.setLocation(next);
         return "Vcházíš do: " + next.getName();
     }
+
 
     @Override
     public boolean exit() {

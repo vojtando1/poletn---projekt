@@ -38,12 +38,12 @@ public class GameData {
     /**
      * Najde lokaci podle ID.
      */
-    public Location findLocation(String name) {
+    public Location findLocation(String id) {
         for (Location l : locations) {
-            if (l.getName().equals(l.getName())) {
+            if (l.getId().equals(id)) {
                 return l;
             }
         }
-        throw new IllegalArgumentException("Neexistuje lokace s id: " + name);
+        throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
     }
 }

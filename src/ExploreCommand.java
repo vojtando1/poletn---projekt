@@ -14,7 +14,9 @@ public class ExploreCommand implements Command {
         } else {
             sb.append("Předměty v místnosti:\n");
             for (Item i : l.getItems()) {
-                sb.append("- ").append(i.getId()).append(" (").append(i.getName()).append(")\n");
+                if (i == null) continue;
+                sb.append("- ").append(i.getId())
+                        .append(" (").append(i.getName()).append(")\n");
             }
         }
 

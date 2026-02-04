@@ -36,4 +36,17 @@ public class Player {
         for (Item i : inventory) sb.append(i.getName()).append(", ");
         return sb.toString();
     }
+    private int health = 10;
+
+    public void damage(int dmg) {
+        health -= dmg;
+    }
+
+    public boolean isAlive() {
+        return health > 0;
+    }
+
+    public int getHealth() {
+        return health;
+    }
 }

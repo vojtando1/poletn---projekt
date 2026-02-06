@@ -1,3 +1,5 @@
+package Game;
+
 import java.util.ArrayList;
 
 
@@ -121,7 +123,7 @@ public class Location {
      * Pokusí se najít sousední lokaci podle zadaného ID.
      *
      * @param id ID cílové lokace.
-     * @return Objekt Location, pokud cesta existuje, jinak null.
+     * @return Objekt Game.Location, pokud cesta existuje, jinak null.
      */
     public Location getExit(String id) {
         if (exits == null || !exits.contains(id)) {
@@ -134,7 +136,7 @@ public class Location {
      * Odstraní předmět z lokace a vrátí jej (např. při sebrání hráčem).
      *
      * @param id ID předmětu, který má být odebrán.
-     * @return Objekt Item, pokud se v lokaci nachází, jinak null.
+     * @return Objekt Game.Item, pokud se v lokaci nachází, jinak null.
      */
     public Item takeItem(String id) {
         for (int i = 0; i < items.size(); i++) {
@@ -156,7 +158,7 @@ public class Location {
      * Vyhledá postavu v lokaci podle ID.
      *
      * @param id ID hledané postavy.
-     * @return Objekt GameCharacter, pokud se v lokaci nachází, jinak null.
+     * @return Objekt Game.GameCharacter, pokud se v lokaci nachází, jinak null.
      */
     public GameCharacter getCharacter(String id) {
         for (GameCharacter c : characters) if (c.id.equals(id)) return c;

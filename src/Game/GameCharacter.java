@@ -1,3 +1,5 @@
+package Game;
+
 public class GameCharacter {
     public String id;
     private String name;

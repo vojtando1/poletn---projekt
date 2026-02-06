@@ -1,3 +1,5 @@
+package Game;
+
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.Reader;
@@ -14,10 +16,10 @@ public class GameData {
     public ArrayList<Location> locations;
 
     /**
-     * Načte JSON z resources a převede ho na objekt GameData pomocí Gson.
+     * Načte JSON z resources a převede ho na objekt Game.GameData pomocí Gson.
      *
      * @param resourcePath cesta k souboru (např. "/gamedata.json")
-     * @return naplněný objekt GameData
+     * @return naplněný objekt Game.GameData
      */
     public static GameData loadGameDataFromResources(String resourcePath) {
 

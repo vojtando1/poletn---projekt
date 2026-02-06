@@ -1,9 +1,11 @@
+package Game;
+
 import java.util.ArrayList;
 
 public class Player {
     private  String name;
     private Location location;
-    boolean knowsWeakness = false;
+    public boolean knowsWeakness = false;
     private  ArrayList<Item> inventory = new ArrayList<>();
 
 

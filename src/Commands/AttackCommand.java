@@ -1,3 +1,6 @@
+package Commands;
+import Game.*;
+
 public class AttackCommand implements Command {
     @Override
     public String execute(Game game, String argument) {

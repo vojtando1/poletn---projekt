@@ -1,3 +1,6 @@
+package Game;
+import Commands.*;
+
 public class GameCharacter {
     public String id;
     private String name;

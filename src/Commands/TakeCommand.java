@@ -1,5 +1,6 @@
+package Commands;
+import Game.*;
 public class TakeCommand implements Command {
-
     @Override
     public String execute(Game game, String argument) {
         Item i = game.getPlayer().getLocation().takeItem(argument);

@@ -1,5 +1,5 @@
 package Game;
-
+import Commands.*;
 public class Item {
     private String id;
     private String name;

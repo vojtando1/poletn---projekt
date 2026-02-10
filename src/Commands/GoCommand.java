@@ -1,3 +1,5 @@
+package Commands;
+import Game.*;
 public class GoCommand implements Command{
     @Override
     public String execute(Game game, String arg) {

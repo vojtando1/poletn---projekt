@@ -1,5 +1,3 @@
-package Commands;
-import Game.*;
 public class UseCommand implements Command {
     public String execute(Game game, String argument) {
         Item i = game.getPlayer().getItem(argument);

@@ -1,5 +1,3 @@
-package Commands;
-import Game.*;
 public class TalkCommand implements Command {
     public String execute(Game game, String argument) {
         GameCharacter c = game.getPlayer().getLocation().getCharacter(argument);

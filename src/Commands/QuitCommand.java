@@ -1,5 +1,3 @@
-package Commands;
-import Game.*;
 public class QuitCommand implements Command {
     Game game;
     public String execute(Game game, String argument) {

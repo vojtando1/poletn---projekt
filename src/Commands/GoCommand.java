@@ -1,4 +1,6 @@
-public class GoCommand implements Command{
+package Commands;
+import Game.*;
+public class GoCommand implements Command {
     @Override
     public String execute(Game game, String arg) {
         if (arg.isEmpty()) {
@@ -46,4 +48,5 @@ public class GoCommand implements Command{
     public boolean exit() {
         return false;
     }
+
 }

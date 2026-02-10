@@ -1,7 +1,10 @@
+package Game;
+
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
+
 
 /**
  * Načítá herní data z JSON souboru uloženého v resources.
@@ -11,13 +14,12 @@ public class GameData {
 
     public ArrayList<Item> items;
     public ArrayList<GameCharacter> characters;
-    public ArrayList<Location> locations;
 
     /**
-     * Načte JSON z resources a převede ho na objekt GameData pomocí Gson.
+     * Načte JSON z resources a převede ho na objekt Game.GameData pomocí Gson.
      *
      * @param resourcePath cesta k souboru (např. "/gamedata.json")
-     * @return naplněný objekt GameData
+     * @return naplněný objekt Game.GameData
      */
     public static GameData loadGameDataFromResources(String resourcePath) {
 
@@ -35,15 +37,23 @@ public class GameData {
         }
     }
 
-    /**
-     * Najde lokaci podle ID.
-     */
+
+    private ArrayList<Location> locations = new ArrayList<>();
+
+    public void addLocation(Location location) {
+        if (location == null) {
+            throw new IllegalArgumentException("Lokace nesmí být null");
+        }
+        locations.add(location);
+    }
+
     public Location findLocation(String id) {
         for (Location l : locations) {
             if (l.getId().equals(id)) {
                 return l;
             }
+            if (id == null) return null;
         }
-        throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
+        return null;
     }
 }

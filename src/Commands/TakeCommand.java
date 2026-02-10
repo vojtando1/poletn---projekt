@@ -1,3 +1,5 @@
+package Commands;
+import Game.*;
 public class TakeCommand implements Command {
 
     @Override

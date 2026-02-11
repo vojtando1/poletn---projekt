@@ -1,8 +1,28 @@
 package Game;
-import Commands.*;
 import java.util.ArrayList;
 
-
+/**
+ * Třída reprezentující herní lokaci (místnost).
+ * <p>
+ * Lokace obsahuje základní informace jako ID,
+ * zobrazovaný název a popis.
+ * Dále uchovává informaci o tom,
+ * zda je zamčená a jaký klíč je potřeba k jejímu odemčení.
+ *
+ * Každá lokace může obsahovat:
+ * <ul>
+ *     <li>seznam východů do dalších lokací,</li>
+ *     <li>seznam předmětů,</li>
+ *     <li>seznam herních postav.</li>
+ * </ul>
+ * </p>
+ *
+ * Lokace zajišťuje základní herní operace,
+ * jako je popis místnosti, odebírání předmětů
+ * nebo vyhledávání postav.
+ *
+ * @author Vojta
+ */
 public class Location {
     private String id;
     private String name;

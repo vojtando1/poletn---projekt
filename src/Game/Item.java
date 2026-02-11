@@ -1,5 +1,15 @@
 package Game;
-import Commands.*;
+
+/**
+ * Třída reprezentující herní předmět.
+ * <p>
+ * Každý předmět má své unikátní ID, název a typ.
+ * Některé předměty mohou být použity hráčem
+ * a mohou ovlivnit průběh hry.
+ * </p>
+ *
+ * @author Vojta
+ */
 public class Item {
     private String id;
     private String name;
@@ -53,6 +63,7 @@ public class Item {
     public void setType(String type) {
         this.type = type;
     }
+
     private boolean portable = true;
 
     public boolean isPortable() {

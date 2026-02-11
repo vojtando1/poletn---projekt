@@ -9,6 +9,7 @@ import Commands.*;
 /**
  * Načítá herní data z JSON souboru uloženého v resources.
  * Slouží jako datový kontejner pro položky, postavy a lokace.
+ * @author Vojta, Matej Chaloupka
  */
 public class GameData {
 
@@ -40,6 +41,12 @@ public class GameData {
 
     private ArrayList<Location> locations = new ArrayList<>();
 
+    /**
+     * Přidá novou lokaci do herních dat.
+     *
+     * @param location lokace, která má být přidána
+     * @throws IllegalArgumentException pokud je lokace null
+     */
     public void addLocation(Location location) {
         if (location == null) {
             throw new IllegalArgumentException("Lokace nesmí být null");
@@ -47,6 +54,12 @@ public class GameData {
         locations.add(location);
     }
 
+    /**
+     * Vyhledá lokaci podle jejího identifikátoru.
+     *
+     * @param id identifikátor hledané lokace
+     * @return nalezená lokace nebo null, pokud neexistuje
+     */
     public Location findLocation(String id) {
         for (Location l : locations) {
             if (l.getId().equals(id)) {

@@ -2,23 +2,40 @@ package Game;
 
 import java.util.HashMap;
 import java.util.Scanner;
-import Game.*;
 import Commands.*;
 
+/**
+ * Hlavní třída reprezentující běh hry.
+ * <p>
+ * Tato třída zajišťuje inicializaci hry,
+ * registraci příkazů, zpracování vstupu hráče
+ * a řízení herní smyčky.
+ * Uchovává také instanci hráče a herních dat.
+ * </p>
+ *
+ * @author Vojta
+ */
 public class Game {
+
     private final GameData data;
     private final Player player;
     private final HashMap<String, Command> commands = new HashMap<>();
     private boolean running = true;
 
-
+    /**
+     * Vytvoří novou instanci hry.
+     *
+     * @param data herní data potřebná pro běh hry
+     */
     public Game(GameData data) {
         this.data = data;
         this.player = new Player("Vojta", data.findLocation("vstupni_sin"));
         registerCommands();
     }
 
-
+    /**
+     * Zaregistruje všechny dostupné herní příkazy.
+     */
     private void registerCommands() {
         commands.put("jdi", new GoCommand());
         commands.put("vezmi", new TakeCommand());
@@ -34,11 +51,17 @@ public class Game {
         commands.put("prozkoumej", new ExploreCommand());
     }
 
-
+    /**
+     * Spustí herní smyčku.
+     * <p>
+     * Opakovaně vypisuje popis aktuální lokace,
+     * načítá vstup hráče a předává jej ke zpracování.
+     * Smyčka běží, dokud není hra ukončena.
+     * </p>
+     */
     public void run() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vítej ve hře Prokletí kamenného Golema");
-
 
         while (running) {
             player.getLocation().describe();
@@ -48,17 +71,25 @@ public class Game {
         }
     }
 
-
+    /**
+     * Zpracuje vstup hráče.
+     *
+     * @param input text zadaný hráčem
+     */
     private void handleInput(String input) {
         if (input.isBlank()) return;
+
         String[] parts = input.toLowerCase().split(" ", 2);
         Command cmd = commands.get(parts[0]);
+
         if (cmd == null) {
             System.out.println("Neznámý příkaz. Napiš 'pomoc'.");
             return;
         }
+
         String arg = parts.length > 1 ? parts[1] : "";
         String result = cmd.execute(this, arg);
+
         if (result != null && !result.isBlank()) {
             System.out.println(result);
         }
@@ -68,9 +99,19 @@ public class Game {
         }
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 
-    public Player getPlayer() { return player; }
-    public GameData getData() { return data; }
+    public GameData getData() {
+        return data;
+    }
+
+    /**
+     * Ukončí hru.
+     *
+     * @return aktuální stav hry (false po ukončení)
+     */
     public boolean stop() {
         running = false;
         return running;

@@ -52,8 +52,7 @@ public class AttackCommand implements Command {
                 return "Golem tě zabil. Prohrál jsi.";
             }
 
-            return "Útočíš, ale Golem je příliš silný! Ztrácíš 5 HP (HP: "
-                    + p.getHealth() + ")";
+            return "Útočíš, ale Golem je příliš silný! Ztrácíš 5 HP (HP: " + p.getHealth() + ")";
         }
 
         // Golem je poražen

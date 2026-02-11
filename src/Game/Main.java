@@ -1,5 +1,5 @@
 package Game;
-
+import Commands.*;
 public class Main {
     public static Game game;
 

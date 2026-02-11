@@ -1,10 +1,9 @@
 package Game;
 
-import Commands.*;
-
-
 import java.util.HashMap;
 import java.util.Scanner;
+import Game.*;
+import Commands.*;
 
 public class Game {
     private final GameData data;

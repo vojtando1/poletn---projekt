@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
-
+import Commands.*;
 
 /**
  * Načítá herní data z JSON souboru uloženého v resources.

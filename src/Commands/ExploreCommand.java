@@ -44,8 +44,7 @@ public class ExploreCommand implements Command {
             sb.append("Předměty v místnosti:\n");
             for (Item i : l.getItems()) {
                 if (i == null) continue;
-                sb.append("- ").append(i.getId())
-                        .append(" (").append(i.getName()).append(")\n");
+                sb.append("- ").append(i.getId()).append(" (").append(i.getName()).append(")\n");
             }
         }
 
@@ -55,8 +54,7 @@ public class ExploreCommand implements Command {
         } else {
             sb.append("\nPostavy v místnosti:\n");
             for (GameCharacter c : l.getCharacters()) {
-                sb.append("- ").append(c.getId())
-                        .append(" (").append(c.getName()).append(")\n");
+                sb.append("- ").append(c.getId()).append(" (").append(c.getName()).append(")\n");
             }
         }
 

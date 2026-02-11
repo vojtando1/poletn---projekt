@@ -9,7 +9,7 @@ import Commands.*;
 /**
  * Načítá herní data z JSON souboru uloženého v resources.
  * Slouží jako datový kontejner pro položky, postavy a lokace.
- * @author Vojta, Matej Chaloupka
+ * @author Vojta
  */
 public class GameData {
 

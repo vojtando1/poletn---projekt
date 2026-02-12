@@ -2,11 +2,9 @@ package Game;
 
 /**
  * Třída reprezentující herní předmět.
- * <p>
  * Každý předmět má své unikátní ID, název a typ.
  * Některé předměty mohou být použity hráčem
  * a mohou ovlivnit průběh hry.
- * </p>
  *
  * @author Vojta
  */
@@ -17,11 +15,9 @@ public class Item {
 
     /**
      * Pouzije predmet z inventare hrace.
-     * <p>
      * Tato metoda zpracovava logiku pouziti specifickych predmetu.
      * Napriklad pri pouziti "stary_svitek" se hrac dozvi slabinu Golema,
      * coz je klicove pro uspesne ukonceni hry.
-     * </p>
      *
      * @param p objekt hrace, ktery predmet pouziva (dojde k aktualizaci jeho znalosti)
      * @param g instance hry pro pristup k hernim datum a stavu

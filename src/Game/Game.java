@@ -6,12 +6,10 @@ import Commands.*;
 
 /**
  * Hlavní třída reprezentující běh hry.
- * <p>
  * Tato třída zajišťuje inicializaci hry,
  * registraci příkazů, zpracování vstupu hráče
  * a řízení herní smyčky.
  * Uchovává také instanci hráče a herních dat.
- * </p>
  *
  * @author Vojta
  */

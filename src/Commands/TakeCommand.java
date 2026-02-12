@@ -4,11 +4,9 @@ import Game.*;
 
 /**
  * Příkaz pro sebrání předmětu z aktuální lokace.
- * <p>
  * Hráč zadá ID předmětu, který chce sebrat.
  * Pokud se předmět v místnosti nachází a je přenosný,
  * je přidán do inventáře hráče.
- * </p>
  *
  * @author Vojta
  */

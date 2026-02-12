@@ -4,10 +4,8 @@ import Game.*;
 
 /**
  * Příkaz pro ukončení hry.
- * <p>
  * Tento příkaz nastaví stav hry na ukončený.
  * Po jeho vykonání herní smyčka skončí.
- * </p>
  *
  * @author Vojta
  */

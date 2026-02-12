@@ -4,10 +4,8 @@ import Game.*;
 
 /**
  * Příkaz zobrazující obsah inventáře hráče.
- * <p>
  * Tento příkaz vypíše všechny předměty,
  * které má hráč aktuálně u sebe.
- * </p>
  *
  * Inventář je důležitý pro řešení herních situací
  * (odemčení místností, boj s nepřítelem apod.).

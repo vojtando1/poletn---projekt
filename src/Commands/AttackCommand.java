@@ -3,16 +3,13 @@ import Game.*;
 
 /**
  * Příkaz umožňující hráči zaútočit na nepřítele v aktuální lokaci.
- * <p>
  * Tento příkaz je primárně určen pro boj s bossem hry – Golemem.
  * Hráč může Golema porazit pouze v případě, že:
- * <ul>
- *     <li>vlastní předmět "stary_mec"</li>
- *     <li>zná slabinu Golema (proměnná knowsWeakness)</li>
- * </ul>
+ * vlastní předmět "stary_mec"
+ * zná slabinu Golema (proměnná knowsWeakness)
+ *
  * Pokud hráč nesplňuje podmínky, Golem mu způsobí zranění.
  * Při ztrátě všech životů hra končí prohrou.
- * </p>
  *
  * @author Vojta
  */

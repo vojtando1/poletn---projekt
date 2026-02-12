@@ -3,17 +3,13 @@ import Game.Game;
 
 /**
  * Rozhraní představující obecný příkaz ve hře.
- * <p>
  * Každý příkaz ve hře (např. jdi, vezmi, použij, útoč, konec)
  * implementuje toto rozhraní. Díky tomu může hra pracovat
  * s příkazy jednotným způsobem.
- * </p>
  *
  * Implementující třídy musí definovat:
- * <ul>
- *     <li>logiku provedení příkazu</li>
- *     <li>informaci, zda příkaz ukončuje hru</li>
- * </ul>
+ * logiku provedení příkazu
+ * informaci, zda příkaz ukončuje hru
  *
  * @author Vojta
  */

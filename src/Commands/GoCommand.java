@@ -4,17 +4,14 @@ import Game.*;
 
 /**
  * Příkaz umožňující hráči přesun mezi lokacemi.
- * <p>
  * Hráč zadá ID místnosti, do které se chce přesunout.
  * Příkaz ověřuje:
- * <ul>
- *     <li>zda byl zadán argument</li>
- *     <li>zda daný východ existuje</li>
- *     <li>zda není místnost zamčená</li>
- *     <li>zda má hráč potřebný klíč</li>
- * </ul>
+ * zda byl zadán argument
+ * zda daný východ existuje
+ * zda není místnost zamčená
+ * zda má hráč potřebný klíč
  * Speciální logika je implementována pro portál, který může ukončit hru výhrou.
- * </p>
+ *
  *
  * @author Vojta
  */

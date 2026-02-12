@@ -3,12 +3,10 @@ import Game.*;
 
 /**
  * Příkaz pro komunikaci s postavou.
- * <p>
  * Tento příkaz umožňuje hráči promluvit si s postavou,
  * která se nachází na aktuální lokaci.
  * Pokud postava existuje, vrátí se její dialog.
  * Pokud postava na daném místě není, vypíše se chybová hláška.
- * </p>
  *
  * @author Vojta
  */

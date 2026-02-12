@@ -4,13 +4,10 @@ import Game.*;
 
 /**
  * Příkaz zobrazující nápovědu ke hře.
- * <p>
  * Tento příkaz vypíše seznam dostupných příkazů,
  * které může hráč během hry použít.
- * </p>
  *
  * Slouží především k orientaci hráče v herních mechanikách.
- * </p>
  *
  * @author Vojta
  */

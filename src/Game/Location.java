@@ -3,19 +3,14 @@ import java.util.ArrayList;
 
 /**
  * Třída reprezentující herní lokaci (místnost).
- * <p>
  * Lokace obsahuje základní informace jako ID,
  * zobrazovaný název a popis.
  * Dále uchovává informaci o tom,
  * zda je zamčená a jaký klíč je potřeba k jejímu odemčení.
  *
  * Každá lokace může obsahovat:
- * <ul>
- *     <li>seznam východů do dalších lokací,</li>
- *     <li>seznam předmětů,</li>
- *     <li>seznam herních postav.</li>
- * </ul>
- * </p>
+ * seznam východů do dalších lokací,
+ * seznam předmětů, seznam herních postav.
  *
  * Lokace zajišťuje základní herní operace,
  * jako je popis místnosti, odebírání předmětů

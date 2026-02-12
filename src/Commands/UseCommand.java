@@ -3,14 +3,12 @@ import Game.*;
 
 /**
  * Příkaz pro použití předmětu.
- * <p>
  * Tento příkaz umožňuje hráči použít předmět,
  * který má ve svém inventáři.
  * Pokud hráč daný předmět nevlastní,
  * vrátí se chybová hláška.
  * V opačném případě se zavolá metoda use()
  * daného předmětu.
- * </p>
  *
  * @author Vojta
  */

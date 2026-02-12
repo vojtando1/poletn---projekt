@@ -3,13 +3,11 @@ import java.util.ArrayList;
 
 /**
  * Třída reprezentující hráče.
- * <p>
  * Hráč má své jméno, aktuální lokaci,
  * inventář předmětů a životy.
  * Uchovává také informaci o tom,
  * zda zná slabinu Golema,
  * což je důležité pro úspěšné dokončení hry.
- * </p>
  *
  * @author Vojta
  */

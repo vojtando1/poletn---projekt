@@ -1,11 +1,9 @@
 package Game;
 /**
  * Třída reprezentující herní postavu.
- * <p>
  * Každá postava má své unikátní ID,
  * zobrazované jméno a dialog,
  * který se vypíše při komunikaci s hráčem.
- * </p>
  *
  * @author Vojta
  */

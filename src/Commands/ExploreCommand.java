@@ -4,17 +4,13 @@ import Game.*;
 
 /**
  * Příkaz umožňující hráči detailně prozkoumat aktuální lokaci.
- * <p>
  * Tento příkaz vypíše:
- * <ul>
- *     <li>název a popis místnosti</li>
- *     <li>seznam předmětů v místnosti</li>
- *     <li>seznam postav v místnosti</li>
- *     <li>dostupné východy</li>
- *     <li>informaci o tom, zda je místnost zamčená</li>
- * </ul>
+ * název a popis místnosti
+ * seznam předmětů v místnosti
+ * seznam postav v místnosti
+ * dostupné východy
+ * informaci o tom, zda je místnost zamčená
  * Slouží k získání kompletního přehledu o aktuální herní situaci.
- * </p>
  *
  * @author Vojta
  */

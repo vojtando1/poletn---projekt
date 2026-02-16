@@ -2,7 +2,10 @@ package Game;
 
 import com.google.gson.Gson;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import Commands.*;
 
@@ -26,17 +29,20 @@ public class GameData {
     public static GameData loadGameDataFromResources(String resourcePath) {
 
         Gson gson = new Gson();
-
-        try (Reader reader = new FileReader(resourcePath)) {
-
+        InputStream in = GameData.class.getResourceAsStream(resourcePath);
+        if (in == null) {
+            throw new RuntimeException("Resource not found: " + resourcePath);
+        }
+        try (in) {
             return gson.fromJson(
-                    reader,
+                    new InputStreamReader(in, StandardCharsets.UTF_8),
                     GameData.class
             );
 
         } catch (Exception e) {
             throw new RuntimeException("Chyba při načítání JSON: " + e.getMessage(), e);
         }
+
     }
 
 

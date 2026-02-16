@@ -4,7 +4,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        GameData data = GameData.loadGameDataFromResources("res/game.json");
+        GameData data = GameData.loadGameDataFromResources("/game.json");
         game = new Game(data);
         game.run();
     }
